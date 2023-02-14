@@ -11,15 +11,18 @@ import Combine
 class NetworkManager {
     
     enum NetworkingError: LocalizedError {
+        case invalidURL
         case badURLResponse(url: URL)
         case unknown
         
         var errorDescription: String? {
             switch self {
-            case .badURLResponse(url: let url): return "[🔥] Bad response from URL: \(url)"
-            case .unknown: return "[⚠️] Unknown error occured"
+            case .invalidURL: return "Invalid URL"
+            case .badURLResponse(url: let url): return "Bad response from URL: \(url)"
+            case .unknown: return "Unknown error occured"
             }
         }
+        
     }
     
     static func download(url: URL) -> AnyPublisher<Data, Error>{

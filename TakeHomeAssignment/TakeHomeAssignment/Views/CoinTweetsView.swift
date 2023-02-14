@@ -20,6 +20,8 @@ struct coinTweetsLoadingView: View {
     }
 }
 
+
+
 struct CoinTweetsView: View {
     
     @StateObject private var coinTweetsVM: CoinTweetsViewModel
@@ -33,12 +35,23 @@ struct CoinTweetsView: View {
     }
     
     var body: some View {
-        List{
-            ForEach(coinTweetsVM.currCoinTweets) { tweet in
-                Text(tweet.text)
+        if coinTweetsVM.currCoinTweets.isEmpty {
+            ProgressView()
+        } else{
+            List{
+                ForEach(coinTweetsVM.currCoinTweets) { tweet in
+                    Text(tweet.text)
+                }
             }
+            .navigationTitle("\(coin.coinName) Tweets")
         }
-        .navigationTitle("\(coin.coinName) Tweets")
     }
 }
 
+struct CoinTweetsView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack{
+            CoinTweetsView(coin: dev.coin)
+        }
+    }
+}

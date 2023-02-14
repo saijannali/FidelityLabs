@@ -12,8 +12,8 @@ import RealmSwift
 //screen two loading struct?
 
 struct CoinListView: View {
-    @Binding var selectedCoin: Coin?
-    @Binding var showCoinTweetView: Bool
+    //@Binding var selectedCoin: Coin?
+    //@Binding var showCoinTweetView: Bool
     @StateObject var vm = CoinListViewModel()
     @ObservedResults(RealmCoin.self) var realmCoins
 
@@ -56,6 +56,15 @@ struct CoinListView: View {
         }
     }
 }
+
+struct CoinListView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack{
+            CoinListView()
+        }
+    }
+}
+
     
 
 //MARK: - Realm funcs
@@ -86,8 +95,8 @@ extension CoinListView {
     
     private func segue(coin: Coin) {
         print("tapped: \(coin.coinName)")
-        selectedCoin = coin
-        showCoinTweetView = true
+        //selectedCoin = coin
+        //showCoinTweetView = true
     }
 }
 

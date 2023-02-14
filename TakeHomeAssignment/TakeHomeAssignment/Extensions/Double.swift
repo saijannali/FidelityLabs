@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Double {
     
@@ -28,7 +29,6 @@ extension Double {
         formatter.maximumFractionDigits = 2
         return formatter
     }
-    
-
-    
 }
+
+

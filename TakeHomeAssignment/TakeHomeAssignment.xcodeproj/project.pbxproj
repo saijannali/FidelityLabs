@@ -24,6 +24,7 @@
 		E5CB6A6F29973716004F256A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5CB6A6E29973716004F256A /* Preview Assets.xcassets */; };
 		E5CB6A762997377A004F256A /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB6A752997377A004F256A /* Welcome.swift */; };
 		E5CB6A7829973858004F256A /* CoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB6A7729973858004F256A /* CoinListView.swift */; };
+		E5F237E1299C111E00568BC6 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F237E0299C111E00568BC6 /* PreviewProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		E5CB6A6E29973716004F256A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5CB6A752997377A004F256A /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		E5CB6A7729973858004F256A /* CoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListView.swift; sourceTree = "<group>"; };
+		E5F237E0299C111E00568BC6 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				E580A5282998B81400CC2E6D /* Double.swift */,
+				E5F237E0299C111E00568BC6 /* PreviewProvider.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				E580A5342998D23000CC2E6D /* RealmCoin.swift in Sources */,
 				E5CB6A7829973858004F256A /* CoinListView.swift in Sources */,
 				E5CB6A762997377A004F256A /* Welcome.swift in Sources */,
+				E5F237E1299C111E00568BC6 /* PreviewProvider.swift in Sources */,
 				E580A5292998B81400CC2E6D /* Double.swift in Sources */,
 				E5CB6A6829973713004F256A /* TakeHomeAssignmentApp.swift in Sources */,
 				E580A542299B589300CC2E6D /* Tweets.swift in Sources */,

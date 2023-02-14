@@ -40,7 +40,7 @@ struct Welcome: View {
                 Spacer()
             }
             .navigationDestination(for: String.self) { _ in
-                CoinListView(selectedCoin: $selectedCoin, showCoinTweetView: $showCoinTweetView)
+                CoinListView()
             }
             .navigationDestination(for: Coin.self, destination: { coin in
                 CoinTweetsView(coin: coin)
@@ -50,7 +50,7 @@ struct Welcome: View {
             .navigationTitle("Welcome")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing, content: {
-                    NavigationLink(destination:  CoinListView(selectedCoin: $selectedCoin, showCoinTweetView: $showCoinTweetView)) {
+                    NavigationLink(destination:  CoinListView()) {
                         Text("Fetch")
                     }
                 })
@@ -59,7 +59,7 @@ struct Welcome: View {
     }
 }
 
-struct ScreenOne_Previews: PreviewProvider {
+struct Welcome_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             Welcome()

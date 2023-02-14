@@ -12,6 +12,8 @@ class TwitterDataService: ObservableObject {
     
     @Published var tweets: Tweets? = nil
     
+    var storgae = Set<AnyCancellable>()
+    
     let coin: Coin
     
     init(coin: Coin) {
@@ -29,22 +31,44 @@ class TwitterDataService: ObservableObject {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("Bearer " + BEARER_TOKEN, forHTTPHeaderField: "Authorization")
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print(NetworkManager.NetworkingError.unknown)
-                return
-            }
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200{
-                print(NetworkManager.NetworkingError.badURLResponse(url: url))
-                return
-            }
-            guard let fetchedTweets = try? JSONDecoder().decode(Tweets.self, from: data) else {return}
-            DispatchQueue.main.async { [weak self] in
-                self?.tweets = fetchedTweets
-            }
-        }
-        .resume()
         
+        let _ = URLSession.shared.dataTaskPublisher(for: request)
+            .receive(on: DispatchQueue.main)
+            .tryMap({ (data, response) -> Data in
+                guard
+                    let res = response as? HTTPURLResponse,
+                    res.statusCode >= 200 && res.statusCode < 300 else {
+                    throw NetworkManager.NetworkingError.badURLResponse(url: url)
+                }
+                return data
+            })
+            .decode(type: Tweets.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: { (completion) in
+                switch completion {
+                case .finished:
+                    print("fetchedTweets: \(query)")
+                case .failure(let err):
+                    print("error: \(err)")
+                }
+            }, receiveValue: { [weak self] returnedTweets in
+                self?.tweets = returnedTweets
+            })
+            .store(in: &storgae)
+
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data, error == nil else {
+//                print(NetworkManager.NetworkingError.unknown)
+//                return
+//            }
+//            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200{
+//                print(NetworkManager.NetworkingError.badURLResponse(url: url))
+//                return
+//            }
+//            guard let fetchedTweets = try? JSONDecoder().decode(Tweets.self, from: data) else {return}
+//            DispatchQueue.main.async { [weak self] in
+//                self?.tweets = fetchedTweets
+//            }
+//        }
+//        .resume()
     }
 }

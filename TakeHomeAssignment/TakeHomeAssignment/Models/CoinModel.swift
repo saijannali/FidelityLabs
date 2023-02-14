@@ -40,6 +40,11 @@ struct Coin: Decodable, Identifiable, Hashable{
         // get key string from path
         coinName = container.codingPath.first!.stringValue
     }
+    
+    init(usd: Double, coinName: String) {
+      self.usd = usd
+      self.coinName = coinName
+    }
 }
 
 struct Coins: Decodable {

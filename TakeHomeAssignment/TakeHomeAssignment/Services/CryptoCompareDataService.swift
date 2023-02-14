@@ -34,9 +34,7 @@ class CryptoCompareDataService {
     }
     
     func startTimer() {
-//        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
-//            self?.getData()
-//        }
+
         timer = Timer.publish(every: 30, on: .main, in: .common)
             .autoconnect()
             .receive(on: DispatchQueue.main)

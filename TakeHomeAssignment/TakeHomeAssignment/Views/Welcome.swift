@@ -9,10 +9,12 @@ import SwiftUI
 import RealmSwift
 
 struct Welcome: View {
-    
-    //@ObservedResults(RealmCoinGroup.self) var realmCoinGroups : Results<RealmCoinGroup>
+  
+    @State private var selectedCoin: Coin? = nil
+    @State private var showCoinTweetView: Bool = false
     
     var body: some View {
+        NavigationStack{
             VStack {
                 ZStack {
                     Color.blue.opacity(0.6)
@@ -27,25 +29,33 @@ struct Welcome: View {
                         .aspectRatio(contentMode: .fit)
                 }
                 
-                NavigationLink(destination: CoinListView()) {
+                NavigationLink(value: "") {
                     Text("Fetch All Coins")
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.green)
                         .cornerRadius(20)
                 }
+        
                 Spacer()
-                
-                
             }
+            .navigationDestination(for: String.self) { _ in
+                CoinListView(selectedCoin: $selectedCoin, showCoinTweetView: $showCoinTweetView)
+            }
+            .navigationDestination(for: Coin.self, destination: { coin in
+                CoinTweetsView(coin: coin)
+                //coinTweetsLoadingView(coin: coin)
+            })
+
             .navigationTitle("Welcome")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing, content: {
-                    NavigationLink(destination: CoinListView()) {
+                    NavigationLink(destination:  CoinListView(selectedCoin: $selectedCoin, showCoinTweetView: $showCoinTweetView)) {
                         Text("Fetch")
                     }
                 })
             }
+        }
     }
 }
 

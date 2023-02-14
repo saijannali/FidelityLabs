@@ -15,6 +15,10 @@
 		E580A52E2998CC6100CC2E6D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E580A52D2998CC6100CC2E6D /* Realm */; };
 		E580A5302998CC6100CC2E6D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E580A52F2998CC6100CC2E6D /* RealmSwift */; };
 		E580A5342998D23000CC2E6D /* RealmCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580A5332998D23000CC2E6D /* RealmCoin.swift */; };
+		E580A540299B525800CC2E6D /* TwitterDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580A53F299B525800CC2E6D /* TwitterDataService.swift */; };
+		E580A542299B589300CC2E6D /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580A541299B589300CC2E6D /* Tweets.swift */; };
+		E580A544299B5A9C00CC2E6D /* CoinTweetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580A543299B5A9C00CC2E6D /* CoinTweetsView.swift */; };
+		E580A548299B7C4D00CC2E6D /* CoinTweetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E580A547299B7C4D00CC2E6D /* CoinTweetsViewModel.swift */; };
 		E5CB6A6829973713004F256A /* TakeHomeAssignmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB6A6729973713004F256A /* TakeHomeAssignmentApp.swift */; };
 		E5CB6A6C29973716004F256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5CB6A6B29973716004F256A /* Assets.xcassets */; };
 		E5CB6A6F29973716004F256A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5CB6A6E29973716004F256A /* Preview Assets.xcassets */; };
@@ -29,6 +33,10 @@
 		E580A5262998548900CC2E6D /* CryptoCompareDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareDataService.swift; sourceTree = "<group>"; };
 		E580A5282998B81400CC2E6D /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E580A5332998D23000CC2E6D /* RealmCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCoin.swift; sourceTree = "<group>"; };
+		E580A53F299B525800CC2E6D /* TwitterDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterDataService.swift; sourceTree = "<group>"; };
+		E580A541299B589300CC2E6D /* Tweets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
+		E580A543299B5A9C00CC2E6D /* CoinTweetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTweetsView.swift; sourceTree = "<group>"; };
+		E580A547299B7C4D00CC2E6D /* CoinTweetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTweetsViewModel.swift; sourceTree = "<group>"; };
 		E5CB6A6429973713004F256A /* TakeHomeAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeHomeAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5CB6A6729973713004F256A /* TakeHomeAssignmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeHomeAssignmentApp.swift; sourceTree = "<group>"; };
 		E5CB6A6B29973716004F256A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +63,7 @@
 			children = (
 				E5CB6A752997377A004F256A /* Welcome.swift */,
 				E5CB6A7729973858004F256A /* CoinListView.swift */,
+				E580A543299B5A9C00CC2E6D /* CoinTweetsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -63,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				E580A5222998196A00CC2E6D /* CoinListViewModel.swift */,
+				E580A547299B7C4D00CC2E6D /* CoinTweetsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -71,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				E580A5262998548900CC2E6D /* CryptoCompareDataService.swift */,
+				E580A53F299B525800CC2E6D /* TwitterDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -96,6 +107,7 @@
 			children = (
 				E580A5242998537200CC2E6D /* CoinModel.swift */,
 				E580A5332998D23000CC2E6D /* RealmCoin.swift */,
+				E580A541299B589300CC2E6D /* Tweets.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,14 +246,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E580A51D29978B4000CC2E6D /* NetworkManager.swift in Sources */,
+				E580A548299B7C4D00CC2E6D /* CoinTweetsViewModel.swift in Sources */,
 				E580A5342998D23000CC2E6D /* RealmCoin.swift in Sources */,
 				E5CB6A7829973858004F256A /* CoinListView.swift in Sources */,
 				E5CB6A762997377A004F256A /* Welcome.swift in Sources */,
 				E580A5292998B81400CC2E6D /* Double.swift in Sources */,
 				E5CB6A6829973713004F256A /* TakeHomeAssignmentApp.swift in Sources */,
+				E580A542299B589300CC2E6D /* Tweets.swift in Sources */,
+				E580A544299B5A9C00CC2E6D /* CoinTweetsView.swift in Sources */,
 				E580A5272998548900CC2E6D /* CryptoCompareDataService.swift in Sources */,
 				E580A5232998196A00CC2E6D /* CoinListViewModel.swift in Sources */,
 				E580A5252998537200CC2E6D /* CoinModel.swift in Sources */,
+				E580A540299B525800CC2E6D /* TwitterDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

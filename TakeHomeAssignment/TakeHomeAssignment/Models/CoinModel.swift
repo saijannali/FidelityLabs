@@ -17,12 +17,12 @@ import Foundation
    },
    "XRP": {
      "USD": 0.3822
-   },
+   }
  ...
  */
 
 
-struct Coin: Decodable, Identifiable{
+struct Coin: Decodable, Identifiable, Hashable{
     let id = UUID().uuidString
     let usd: Double
     let coinName: String
@@ -72,7 +72,6 @@ struct Coins: Decodable {
             tempArray.append(decodedObject)
         }
 
-        // Finish decoding all Student objects. Thus assign tempArray to array.
         array = tempArray
     }
 }
